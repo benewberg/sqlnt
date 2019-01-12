@@ -25,6 +25,7 @@ Using the sqlnt() method, pass the sql to get the results of the query:
 `ntq.sqlnt("select beer, score, abv from beer where score > 3.2 order by score desc;")`
 
 ...returns:
+
 ```
 [nt(beer="Bell's Amber Ale", score=3.84, abv=5.8), nt(beer='75th Street Fountain City Irish Red', score=3.47, abv=5.72), nt(beer='Abita Christmas Ale', score=3.29, abv=None)]
 ```
@@ -37,3 +38,21 @@ Re-running the same query will give the following results:
 ```
 [("Bell's Amber Ale", 3.84, 5.8), ('75th Street Fountain City Irish Red', 3.47, 5.72), ('Abita Christmas Ale', 3.29, None)]
 ```
+
+The SqlNt object has a few accessible properties:
+
+`ntq.table`
+...returns:
+
+`'beer'`
+
+`ntq.fields`
+...returns:
+
+`['external_id', 'added_dt', 'last_rating_dt', 'note', 'score', 'abv', 'style_id', 'brewer_id', 'beer', 'id']`
+
+`ntq.nt`
+...returns the original object:
+
+```[nt(external_id=23289, added_dt='2015-03-10', last_rating_dt='2018-08-12', note='', score=3.47, abv=5.72, style_id=14, brewer_id=2, beer='75th Street Fountain City Irish Red', id=1), nt(external_id=39391, added_dt='2012-10-21', last_rating_dt='2017-10-02', note='Retired', score=3.29, abv=None, style_id=14, brewer_id=3, beer='Abita Christmas Ale', id=2), nt(external_id=24012, added_dt='2012-10-26', last_rating_dt='2018-09-01', note='Retired', score=3.18, abv=5.8, style_id=14, brewer_id=9, beer='Arcadia Amber Ale', id=3), nt(external_id=794, added_dt='2012-10-21', last_rating_dt='2017-10-02', note='', score=3.84, abv=5.8, style_id=14, brewer_id=17, beer="Bell's Amber Ale", id=4), nt(external_id=1337, added_dt='2012-10-21', last_rating_dt='2018-09-01', note='Retired', score=3.08, abv=5.6, style_id=14, brewer_id=81, beer='Berghoff Famous Red Ale', id=5)]```
+
