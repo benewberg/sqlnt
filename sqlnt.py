@@ -86,12 +86,14 @@ class SqlNt():
 
     def sqlnt(self, sql):
         try:
+            results = []
             row_results = self._curs.execute(sql).fetchall()
             if not self.return_as_nt:
-                return row_results
-            results = []
-            for row in row_results:
-                results.append(self._to_nt(row))
+                for row in row_results:
+                    results.append(tuple(row))
+            else:
+                for row in row_results:
+                    results.append(self._to_nt(row))
         except sqlite3.OperationalError as ex:
             raise RuntimeError(ex)
         return results

@@ -29,8 +29,11 @@ Using the sqlnt() method, pass the sql to get the results of the query:
 [nt(beer="Bell's Amber Ale", score=3.84, abv=5.8), nt(beer='75th Street Fountain City Irish Red', score=3.47, abv=5.72), nt(beer='Abita Christmas Ale', score=3.29, abv=None)]
 ```
 By default, the results will be returned as a list of namedtuples.
-To return the results as a list of the optimized sqlite3.Row object, change the option thusly:
+To return the results as a list of tuples, change the option thusly:
 
 `ntq.return_as_nt = False`
 
 Re-running the same query will give the following results:
+```
+[("Bell's Amber Ale", 3.84, 5.8), ('75th Street Fountain City Irish Red', 3.47, 5.72), ('Abita Christmas Ale', 3.29, None)]
+```
